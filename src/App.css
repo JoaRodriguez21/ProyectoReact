@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* NavBar */
+
+.contNav{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 20px;
+  background-color:azure;
+}
+
+.logoNav{
+  width: 50px;
+  height: 50;
+}
