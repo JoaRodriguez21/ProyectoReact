@@ -1,0 +1,20 @@
+/* CONTENEDOR NAV */
+
+/* ul */
+.ulContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    list-style: none;
+}
+
+/* li */
+.ulContent .liBox{
+    padding: 10px 20px;
+}
+.ulContent .liBox:hover{
+    color: rgb(156, 8, 8);
+    transition: 1s;
+}
