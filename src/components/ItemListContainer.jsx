@@ -1,9 +1,13 @@
+import { findByLabelText } from "@testing-library/react";
 
 
 
 function ItemListCont(props){
+    
     return(
-        <h2>{props.greeting}</h2>
+        <div>
+            <h2>{props.greeting}</h2>
+        </div>
     );
 }
 

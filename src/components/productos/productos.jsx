@@ -10,7 +10,6 @@ function Card(props) {
     function handleClick(evt) {
         setColorState("green");
     }
-    let stock = 10;
     const [count, setCount] = useState(1)
     function handleAdd() {
         setCount(count + 1);
@@ -47,7 +46,7 @@ function Card(props) {
                                 <div className="countCard">
                                     <button className="btn btn-secondary" disabled={count === 1} onClick={handleSubstrac}>-</button>
                                     <p className="textCount">{count}</p>
-                                    <button className="btn btn-secondary" disabled={count === stock} onClick={handleAdd}>+</button>
+                                    <button className="btn btn-secondary" disabled={count === (props.stock)} onClick={handleAdd}>+</button>
                                 </div>
                                 <div>
                                     <button onClick={handleClick} style={styleButton} className="btn btn-primary">añadir al carrito</button>
