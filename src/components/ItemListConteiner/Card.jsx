@@ -19,37 +19,37 @@ function Card(props) {
     }
 
     return(
-        <div className="cardOfertas col">
+        <div class="col">
             <div class="row">
                 <div class="">
-                    <div class="card">
+                    <div class="card cardOfertas ">
                         <div class="d-flex justify-content-between p-3">
-                            <p class="lead mb-0">Oferta del día</p>
-                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong">
-                                <p class="text-white mb-0 small">{props.stock}</p>
-                            </div>
+                                <h3 class="mb-0">{props.nombre}</h3>
+                            
                         </div>
-                        <img src={props.img} className="imgCardOfertas card-img-top" class="card-img-top" alt="Laptop" />
+                        <div className="contImgProductos">
+                            <img src={props.imgurl} class="card-img-top imgCardProductos" alt="" />
+                        </div>
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
-                                <p class="small"><a href="#!" class="text-muted">{props.categoria}</a></p>
+                                <h4><a href="#!" class="text-muted textCard">{props.categoria}</a></h4>
                                 <p class="small text-danger"><s>{props.descuento}</s></p>
                             </div>
 
                             <div class="d-flex justify-content-between mb-3">
-                                <h5 class="mb-0">{props.title}</h5>
-                                <h5 class="text-dark mb-0">${props.precio}</h5>
+                                <h4 class="text-dark mb-0 textCardPrecio">${props.precio}</h4>
                             </div>
 
+
                             <div class="d-flex mb-2 buttonColumnCard">
-                                <p class="text-muted mb-0">Disponibles: <span class="fw-bold">{props.stock}</span></p>
+                                <p class="text-muted mb-0 textCard">Disponibles: <span class="fw-bold textCard">{props.stock}</span></p>
                                 <div className="countCard">
                                     <button className="btn btn-secondary" disabled={count === 1} onClick={handleSubstrac}>-</button>
                                     <p className="textCount">{count}</p>
                                     <button className="btn btn-secondary" disabled={count === (props.stock)} onClick={handleAdd}>+</button>
                                 </div>
                                 <div>
-                                    <button onClick={handleClick} style={styleButton} className="btn btn-primary">añadir al carrito</button>
+                                    <button onClick={handleClick} style={styleButton} className="btn btn-primary buttonAñadir">Añadir al carrito</button>
                                 </div>
                             </div>
                         </div>

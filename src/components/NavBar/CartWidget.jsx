@@ -1,8 +1,8 @@
 import ImgCarrito from "../NavBar/carrito.png";
-
+import "./NavBar.css"
 function CartWidget() {
     return(
-        <img src={ImgCarrito} alt="imagen del carrito" />
+        <img className="navCart" src={ImgCarrito} alt="imagen del carrito" />
     );
 } 
 
