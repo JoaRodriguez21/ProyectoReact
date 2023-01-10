@@ -249,5 +249,24 @@ const ProductosApple = () => {
       }, 3000);
     });
   };
+
+  const getProducto = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(database);
+      }, 2000);
+    });
+  };
+
+  const getProdByCategory = (categoryURL) => {
+    return new Promise((resolve, reject) => {
+      let reqItems = database.filter((item) => item.category === categoryURL);
   
+      setTimeout(() => {
+        resolve(reqItems);
+      }, 2000);
+    });
+  };
+
   export default ProductosApple;
+  export {getProducto, getProdByCategory};

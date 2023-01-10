@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import ProductosApple from "../../Services/mockApple"
+import { useParams } from 'react-router-dom';
+import ProductosApple, { getProdByCategory } from "../../Services/mockApple"
 import Card from './Card';
 
 
@@ -7,11 +8,20 @@ import Card from './Card';
 function ItemList() {
     const [productos, setProductos] = useState([])
 
+    let { categoryid } = useParams();
+
     useEffect(() => {
-        ProductosApple().then((ProdDataBase)=>{
-            setProductos(ProdDataBase)
-        });
-    },[])
+        if (!categoryid) {
+            ProductosApple().then((resp)=>{
+                setProductos(resp)
+            })
+            .catch((error) => alert(error));
+        } else {
+            getProdByCategory(categoryid).then((resp) => {
+                setProductos(resp)
+            })
+        } 
+    },[categoryid]);
   return (
     <div className="productosContainer">
         {productos.map((CardIterada) => {
