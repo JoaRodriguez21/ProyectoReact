@@ -18,6 +18,7 @@
 .tituloProductos{
     font-size: 7rem;
     font-family: 'Roboto Slab', serif;
+    margin-bottom: 70px;
 }
 /* card */
 .cardOfertas{
@@ -38,7 +39,7 @@
     margin: 10px 0px;
 }
 .textCount{
-    font-size: 1rem;
+    font-size: 3rem !important;
     font-family: 'Courier New', Courier, monospace;
     margin: 0px 10px;
 }

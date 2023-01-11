@@ -8,20 +8,21 @@ import Card from './Card';
 function ItemList() {
     const [productos, setProductos] = useState([])
 
-    let { categoryid } = useParams();
+    let { categoriaid } = useParams();
 
     useEffect(() => {
-        if (!categoryid) {
+        if (!categoriaid) {
             ProductosApple().then((resp)=>{
                 setProductos(resp)
             })
             .catch((error) => alert(error));
         } else {
-            getProdByCategory(categoryid).then((resp) => {
+            getProdByCategory(categoriaid).then((resp) => {
                 setProductos(resp)
             })
+            .catch((error) => alert(error));
         } 
-    },[categoryid]);
+    },[categoriaid]);
   return (
     <div className="productosContainer">
         {productos.map((CardIterada) => {

@@ -17,10 +17,10 @@ function NavBar() {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav m-auto mb-2 mb-lg-0 ulContent">
         <NavItem to="/" text="Inicio"/>
-        <NavItem to="/category" text="Productos"/>
-        <NavItem to="/category/Iphone" text="Iphone"/>
-        <NavItem to="/category/Watch" text="Watch"/>
-        <NavItem to="/category/AirPods" text="AirPods"/>
+        <NavItem to="/categoria/Iphone" text="Iphone"/>
+        <NavItem to="/categoria/MacBook" text="MacBooks"/>
+        <NavItem to="/categoria/Watch" text="Watch"/>
+        <NavItem to="/categoria/AirPods" text="AirPods"/>
       </ul>
     </div>
   </div>

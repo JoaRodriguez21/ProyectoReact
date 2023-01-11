@@ -18,7 +18,7 @@ function Card(props) {
     function handleSubstrac() {
         setCount(count - 1);
     }
-
+    
     return(
         <div className="col">
             <div className="row">
@@ -38,7 +38,7 @@ function Card(props) {
                             </div>
 
                             <div className="d-flex justify-content-between mb-3">
-                                <h4 className="text-dark mb-0 textCardPrecio">${props.precio}</h4>
+                                <h4 className="text-dark mb-0 textCardPrecio">USD ${props.precio}</h4>
                             </div>
 
 
@@ -46,7 +46,7 @@ function Card(props) {
                                 <p className="text-muted mb-0 textCard">Disponibles: <span className="fw-bold textCard">{props.stock}</span></p>
                                 <div>
                                     <Link to={`/detalle/${props.id}`}>
-                                        <button onClick={handleClick} style={styleButton} className="btn btn-primary buttonAñadir">Comprar</button>
+                                        <button onClick={handleClick} style={styleButton} className="btn btn-primary buttonAñadir">Información</button>
                                     </Link>
                                 </div>
                             </div>

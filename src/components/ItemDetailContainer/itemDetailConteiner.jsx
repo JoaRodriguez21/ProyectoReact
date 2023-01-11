@@ -10,21 +10,19 @@ function ItemDetailConteiner() {
   let params = useParams();
 
 useEffect(() => {
-    getProducto(params.idProd).then((ProdDetalle) => {
-          setProductoDetail(ProdDetalle);
+    getProducto(params.id).then((res) => {
+          setProductoDetail(res);
         })
         .catch((error) => alert(error));
-    }, []);
+    }, [params]);
   return (
-    <ItemDetail
+    <ItemDetail {...productoDetail}
     nombre={productoDetail.nombre}
     imgurl={productoDetail.imgurl}
     categoria={productoDetail.categoria}
     precio={productoDetail.precio}
     stock={productoDetail.stock}
-    color={productoDetail.info.color}
-    memoria={productoDetail.info.memoria}
-    chip={productoDetail.info.chip}
+    info={productoDetail.info}
     ></ItemDetail>
   )
 }

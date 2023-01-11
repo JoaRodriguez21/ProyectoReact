@@ -1,0 +1,31 @@
+.contHomePage{
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.titleHomePage{
+    font-size: 6rem;
+    margin-bottom: 70px;
+}
+.contImgLinks{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+.imgLinks{
+    margin: 10px 20px;
+    width: 700px;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.imgLinks:hover{
+    transform: scale(1.05);
+    transition: 0.5s;
+}
