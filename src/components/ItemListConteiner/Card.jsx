@@ -11,13 +11,6 @@ function Card(props) {
     function handleClick(evt) {
         setColorState("green");
     }
-    const [count, setCount] = useState(1)
-    function handleAdd() {
-        setCount(count + 1);
-    }
-    function handleSubstrac() {
-        setCount(count - 1);
-    }
     
     return(
         <div className="col">
@@ -40,7 +33,6 @@ function Card(props) {
                             <div className="d-flex justify-content-between mb-3">
                                 <h4 className="text-dark mb-0 textCardPrecio">USD ${props.precio}</h4>
                             </div>
-
 
                             <div className="d-flex mb-2 buttonColumnCard">
                                 <p className="text-muted mb-0 textCard">Disponibles: <span className="fw-bold textCard">{props.stock}</span></p>

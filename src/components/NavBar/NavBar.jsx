@@ -4,7 +4,15 @@ import "./NavBar.css"
 import { Link } from "react-router-dom";
 import NavItem from "./NavItem";
 
-function NavBar() {
+
+function NavBar(props) {
+  function handleSubmit(evt){
+    evt.preventDefault()
+    let productoImput = evt.target.elements[0].value;
+    props.onLogin(productoImput);
+
+  }
+
     return(
 <nav className="contNav navbar navbar-expand-lg bg-body-tertiary contNav">
   <div className="container-fluid">
@@ -22,9 +30,18 @@ function NavBar() {
         <NavItem to="/categoria/Watch" text="Watch"/>
         <NavItem to="/categoria/AirPods" text="AirPods"/>
       </ul>
+      <div className="cartContainer">
+        <form className="cartContainer" onSubmit={handleSubmit}>
+            <h3 className="tituloImput me-3">Buscar producto: </h3>
+          <label className="me-3">
+            <input className="imputForm" type="text" name="name" />
+          </label>
+          <button type="submit" value="Submit"  className="btn me-3 loginButton">🔍</button>
+        </form>
+      </div>
     </div>
   </div>
-    <div>
+    <div className="cartContainer">
       <Link to="/cart">
         <CartWidget/>
       </Link>

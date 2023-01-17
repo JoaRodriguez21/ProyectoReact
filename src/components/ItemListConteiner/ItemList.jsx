@@ -7,9 +7,8 @@ import Card from './Card';
 
 function ItemList() {
     const [productos, setProductos] = useState([])
-
     let { categoriaid } = useParams();
-
+    
     useEffect(() => {
         if (!categoriaid) {
             ProductosApple().then((resp)=>{

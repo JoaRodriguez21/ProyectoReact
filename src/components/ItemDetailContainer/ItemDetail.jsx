@@ -1,25 +1,9 @@
 import React from "react";
-import { useState } from "react";
 import ItemList from "../ItemListConteiner/ItemList";
+import ItemCount from "./ItemCount";
 import "./ItemDetail.css"
 
-function ItemDetail({ nombre, imgurl, categoria, precio, stock, info}) {
-    
-    const [colorState, setColorState] = useState("");
-    let styleButton = {
-        backgroundColor: colorState,
-    }
-    function handleClick(evt) {
-        setColorState("green");
-    }
-    const [count, setCount] = useState(1)
-    function handleAdd() {
-        setCount(count + 1);
-    }
-    function handleSubstrac() {
-        setCount(count - 1);
-    }
-
+function ItemDetail({ nombre, imgurl, categoria, precio, stock, info, onAddToCart}) {
   return (
     <section className="contDetail">
       <div className="item-card contCardDetail">
@@ -48,17 +32,7 @@ function ItemDetail({ nombre, imgurl, categoria, precio, stock, info}) {
                   </div>
               </div>
             </div>
-            <div className="d-flex mb-2 buttonColumnCard">
-              <p className="text-muted mb-0 textCard">Disponibles: <span className="fw-bold textCard">{stock}</span></p>
-              <div className="countCard">
-                  <button className="btn btn-secondary btnDisp" disabled={count === 1} onClick={handleSubstrac}>-</button>
-                  <p className="textCount">{count}</p>
-                  <button className="btn btn-secondary btnDisp" disabled={count === stock} onClick={handleAdd}>+</button>
-              </div>
-              <div>
-                  <button onClick={handleClick} style={styleButton} className=" btnDetail">Agregar al carrito 🛒</button>
-              </div>
-          </div>
+            <ItemCount stocked={stock}  onAddToCart={onAddToCart}></ItemCount>
         </div>
         <br></br>
       </div>
