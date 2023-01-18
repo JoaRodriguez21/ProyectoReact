@@ -4,7 +4,8 @@ import "./productosSection.css"
 import {Link} from "react-router-dom"
 
 function Card(props) {
-    const [colorState, setColorState] = React.useState("blue");
+    const {id, nombre, categoria, imgurl, stock, precio, descuento} = props.item
+    const [colorState, setColorState] = React.useState("blue"); //Utilizar color
     let styleButton = {
         backgroundColor: colorState,
     }
@@ -18,26 +19,38 @@ function Card(props) {
                 <div className="">
                     <div className="card cardOfertas ">
                         <div className="d-flex justify-content-between p-3">
-                                <h3 className="mb-0">{props.nombre}</h3>
+                                <h3 className="mb-0">{nombre}</h3>
                             
                         </div>
                         <div className="contImgProductos">
-                            <img src={props.imgurl} className="card-img-top imgCardProductos" alt="" />
+                            <img src={imgurl} className="card-img-top imgCardProductos" alt="" />
                         </div>
                         <div className="card-body">
                             <div className="d-flex justify-content-between">
-                                <h4><a href="#!" className="text-muted textCard">{props.categoria}</a></h4>
-                                <p className="small text-danger"><s>{props.descuento}</s></p>
+                                <h4><a href="#!" className="text-muted textCard">{categoria}</a></h4>
                             </div>
 
                             <div className="d-flex justify-content-between mb-3">
-                                <h4 className="text-dark mb-0 textCardPrecio">USD ${props.precio}</h4>
+                                {
+                                    descuento?(
+                                        <h3 className="small text-danger"><s className="textCard">USD ${descuento}</s></h3>
+                                    ) : (
+                                        ""
+                                    )
+                                }
+                                <h4 className="text-dark mb-0 textCardPrecio">USD ${precio}</h4>
                             </div>
 
                             <div className="d-flex mb-2 buttonColumnCard">
-                                <p className="text-muted mb-0 textCard">Disponibles: <span className="fw-bold textCard">{props.stock}</span></p>
+                                {
+                                    stock <= 4 ? (
+                                        <p className="text-muted mb-0 textCard">¡Ultimos disponibles! <span className="fw-bold textCard">{stock}</span></p>
+                                    ) : (
+                                        <p className="text-muted mb-0 textCard">Disponibles: <span className="fw-bold textCard">{stock}</span></p>
+                                    )
+                                }
                                 <div>
-                                    <Link to={`/detalle/${props.id}`}>
+                                    <Link to={`/detalle/${id}`}>
                                         <button onClick={handleClick} style={styleButton} className="btn btn-primary buttonAñadir">Información</button>
                                     </Link>
                                 </div>

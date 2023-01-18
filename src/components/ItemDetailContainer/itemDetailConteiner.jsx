@@ -11,7 +11,7 @@ function ItemDetailConteiner() {
   const { addToCart } = useContext(cartContext)
 
   function handleAddToCart(count){
-    /* alert(`agregaste ${count} elementos`) */
+    alert(`agregaste ${count} elementos`)
     addToCart(
       {...productoDetail, count: count}
     );

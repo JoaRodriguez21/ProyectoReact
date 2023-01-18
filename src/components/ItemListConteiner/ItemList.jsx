@@ -7,6 +7,7 @@ import Card from './Card';
 
 function ItemList() {
     const [productos, setProductos] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     let { categoriaid } = useParams();
     
     useEffect(() => {
@@ -14,21 +15,30 @@ function ItemList() {
             ProductosApple().then((resp)=>{
                 setProductos(resp)
             })
-            .catch((error) => alert(error));
+            .catch((error) => alert(error))
+            .finally(()=> setIsLoading(false))
         } else {
             getProdByCategory(categoriaid).then((resp) => {
-                setProductos(resp)
+                setProductos(resp);
+                setIsLoading(false);
             })
-            .catch((error) => alert(error));
+            .finally(()=> setIsLoading(false))
         } 
     },[categoriaid]);
   return (
-    <div className="productosContainer">
-        {productos.map((CardIterada) => {
-            return( 
-                <Card key={CardIterada.id} id={CardIterada.id} nombre={CardIterada.nombre} categoria={CardIterada.categoria} color={CardIterada.info.color} memoria={CardIterada.info.memoria} chip={CardIterada.info.chip} imgurl={CardIterada.imgurl} stock={CardIterada.stock} precio={CardIterada.precio}/>                   
-        )})}
-    </div>
+    <>
+    {isLoading ? (
+        <h3>Cargando productos "loader"</h3>
+    ) : (
+        <div className="productosContainer">
+            {productos.map((CardIterada) => {
+                return <Card key={CardIterada.id} item={CardIterada}/>                   
+            })}
+        </div>
+        )
+    }
+        
+    </>
   )
 }
 

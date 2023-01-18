@@ -26,7 +26,7 @@ const database = [
             }
         ],
         imgurl: "https://i.postimg.cc/MHJ3yJwy/iphone-11-64.webp",
-        stock: 3,
+        stock: 5,
         precio: 1510,
     },
     {
@@ -43,6 +43,7 @@ const database = [
         imgurl: "https://i.postimg.cc/8cdK4Xkx/Iphone11-128.webp",
         stock: 4,
         precio: 1600,
+        descuento: 1900,
     },
     {
         id: 4,
@@ -116,8 +117,9 @@ const database = [
             }
         ],
         imgurl: "https://i.postimg.cc/KYK0w8vP/Iphone13-Pro-Max.webp",
-        stock: 6,
+        stock: 4,
         precio: 4380,
+        descuento: 4650,
     },
     {
         id: 9,
@@ -193,6 +195,7 @@ const database = [
         imgurl: "https://i.postimg.cc/9fzk2B1q/Air-Pods-Pro.webp",
         stock: 7,
         precio: 390,
+        descuento: 430,
     },
     {
         id: 14,
@@ -238,6 +241,7 @@ const database = [
         imgurl: "https://i.postimg.cc/G3v5btPz/Apple-Watch-Series8.webp",
         stock: 7,
         precio: 390,
+        descuento: 420,
     },
     {
         id: 17,
@@ -283,6 +287,7 @@ const database = [
         imgurl: "https://i.postimg.cc/qqYCrJgp/macbook-Pro2020.webp",
         stock: 3,
         precio: 1150,
+        descuento: 1330,
     },
     {
         id: 20,
