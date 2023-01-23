@@ -1,0 +1,176 @@
+.tituloCarrito{
+    color: white;
+    text-align: center;
+    font-size: 7rem;
+    background-color: rgba(0, 0, 0, 0.66);
+}
+.tituloMiCarrito{
+    color: rgb(0, 0, 0);
+    margin: 10px 50px;
+    text-align: center;
+    font-size: 3rem;
+    box-shadow: rgba(163, 163, 163, 0.4) 5px 5px, rgba(138, 138, 138, 0.3) 10px 10px, rgba(81, 81, 81, 0.2) 15px 15px, rgba(74, 74, 74, 0.1) 20px 20px, rgba(20, 20, 20, 0.05) 25px 25px;
+    background-color: rgba(255, 255, 255, 0.66);
+}
+.tituloResumen{
+    color: black;
+    margin: 10px 50px;
+    text-align: center;
+    font-size: 3rem;
+}
+.contCart{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.contResumen{
+    width: 50%;
+    background-color: white;
+}
+.imputResumen{
+    width: 80%;
+    
+}
+.contMiCart{
+    width: 50%;
+    background-color: rgba(63, 63, 63, 0.791);
+}
+.contClearCart{
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.buttonClearCart{
+    font-size: 3rem !important;
+    font-family: 'Teko', sans-serif;
+    color: white !important;
+    background: rgb(31,30,30);
+    background: linear-gradient(130deg, rgba(31,30,30,1) 58%, rgba(142,142,142,0.9387955865940126) 94%); 
+}
+.buttonClearCart:hover{
+    transition: 1s !important;
+    background: rgb(31,30,30);
+    background: linear-gradient(130deg, rgba(31,30,30,1) 3%, rgba(142,142,142,0.9387955865940126) 29%); 
+}
+.contCartItems{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding: 30px 20px;
+}
+.contItemCart{
+    margin: 20px 10px;
+    border-radius: 2%;
+    padding: 20px 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    box-shadow: rgba(155, 155, 155, 0.2) 0px 2px 8px 0px;
+    background-color: rgb(255, 255, 255);
+}
+.contItemCart:hover{
+    box-shadow: rgba(237, 237, 237, 0.483) 5px 5px, rgba(203, 203, 203, 0.397) 10px 10px, rgba(156, 156, 156, 0.363) 15px 15px, rgba(107, 107, 107, 0.271) 20px 20px, rgba(79, 79, 79, 0.197) 25px 25px;
+    transition: 0.5s;
+}
+.contImgCart{
+    width: auto;
+    height: 70px;
+}
+.imgCartProducto{
+    width: 100%;
+    height: 100%;
+}
+.shadowItems{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(163, 163, 163, 0.4) 5px 5px, rgba(138, 138, 138, 0.3) 10px 10px, rgba(81, 81, 81, 0.2) 15px 15px, rgba(74, 74, 74, 0.1) 20px 20px, rgba(20, 20, 20, 0.05) 25px 25px;
+}
+.bordersItems{
+    border-width: 2px;
+    border-style: solid;
+    width: 100%;
+    height: 100%;
+}
+.titlesItems{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* No hay items */
+
+.contDontItems{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.tituloDontItems{
+    color: rgb(0, 0, 0);
+    margin: 30px 20px;
+    text-align: center;
+    font-size: 3rem;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: red;
+}
+
+/* Button */
+.btnBasic {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #7e82a2 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.btnBasic:focus {
+  box-shadow: #ededed 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #ffffff 0 -3px 0 inset;
+}
+
+.btnBasic:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #ffffff 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.btnBasic:active {
+  box-shadow: #e8e8e8 0 3px 7px inset;
+  transform: translateY(2px);
+}

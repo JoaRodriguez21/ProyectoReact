@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../../components/CartContainer/cartContainer.css"
 
 
 function ItemCount({stocked, onAddToCart}) {
@@ -22,7 +23,7 @@ function ItemCount({stocked, onAddToCart}) {
                 <button className="btn btn-secondary btnDisp" disabled={count === stocked} onClick={handleAdd}>+</button>
             </div>
             <div>
-                <button onClick={() => onAddToCart(count)}  style={styleButton} className=" btnDetail">Agregar al carrito 🛒</button>
+                <button onClick={() => onAddToCart(count)}  style={styleButton} className="btnBasic">Agregar al carrito 🛒</button>
             </div>
         </div>
   )

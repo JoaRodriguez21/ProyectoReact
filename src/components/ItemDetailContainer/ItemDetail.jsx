@@ -22,13 +22,23 @@ function ItemDetail({ nombre, imgurl, categoria, precio, stock, info, onAddToCar
               <div>
                   <h3 className="tituloInfo">Caracteristicas</h3>
                   <div>
-                    {info?.map(element =>
+                    { info ? (
                       <div>
-                        <h4 className="datosInfo">Color: {element.color}</h4>
-                        <h4 className="datosInfo">Memoria: {element.memoria}</h4>
-                        <h4 className="datosInfo">Chip: {element.chip}</h4>
+                        <h4 className="datosInfo">Color: {info[0]}</h4>
+                        { info[1] ?
+                          <h4 className="datosInfo">Memoria: {info[1]}GB</h4>
+                          :
+                          ""
+                        }
+                        { info[2] ?
+                          <h4 className="datosInfo">Chip: {info[2]}</h4>
+                          :
+                          ""
+                        }
                       </div>
-                    )}
+                      ) : (
+                        ""
+                      )}
                   </div>
               </div>
             </div>

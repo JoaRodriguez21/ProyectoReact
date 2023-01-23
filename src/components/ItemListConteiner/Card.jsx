@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./productosSection.css"
 import {Link} from "react-router-dom"
+import "../CartContainer/cartContainer.css"
 
 function Card(props) {
     const {id, nombre, categoria, imgurl, stock, precio, descuento} = props.item
@@ -19,11 +20,10 @@ function Card(props) {
                 <div className="">
                     <div className="card cardOfertas ">
                         <div className="d-flex justify-content-between p-3">
-                                <h3 className="mb-0">{nombre}</h3>
-                            
+                                <h3 className="mb-0">{nombre}</h3>                            
                         </div>
                         <div className="contImgProductos">
-                            <img src={imgurl} className="card-img-top imgCardProductos" alt="" />
+                            <img src={imgurl} className="card-img-top imgCardProductos" alt={nombre} />
                         </div>
                         <div className="card-body">
                             <div className="d-flex justify-content-between">
@@ -51,7 +51,7 @@ function Card(props) {
                                 }
                                 <div>
                                     <Link to={`/detalle/${id}`}>
-                                        <button onClick={handleClick} style={styleButton} className="btn btn-primary buttonAñadir">Información</button>
+                                        <button onClick={handleClick} style={styleButton} className="btnBasic">Información</button>
                                     </Link>
                                 </div>
                             </div>

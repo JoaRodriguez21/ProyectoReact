@@ -1,3 +1,4 @@
+import { Action } from '@remix-run/router';
 import React, { useState } from 'react'
 import { createContext } from "react";
 
@@ -25,16 +26,35 @@ function CartProvider(props) {
     else{
       setCart([...cart, item]);
     }
-    /* let newCart = [...cart]
-    newCart.push(item);
-    setCart(newCart) */ 
   }
 
+  function removeItem(item){
+    alert(`se eliminará un producto`)    
+      /* let itemToDelete = cart.find(elem => elem.id === item) */
+      /* setCart([...cart, setCart(cart => cart.filter((prod) => prod.id !== item))])
+      console.log(setCart) */
+  }
+
+  function clear(){
+    setCart([]);
+  }
+
+  const getTotalItemsInCart = () => {
+  //newCart.reduce((count, item) => item.precio + count, 0);
+  /* function getTotalItemsInCart(){
+    //reduce?
+    let total = 0;
+    newCart.reduce((count, item) => count = count.count + item.count, 0);
+    //por cada producto -> total += producto.count
+  } */
+}
+
   return (
-    <cartContext.Provider value={{cart, addToCart, itemsCounter}}>
+    <cartContext.Provider value={{cart, addToCart, itemsCounter,removeItem, getTotalItemsInCart, clear}}>
         {props.children}
     </cartContext.Provider>
   )
 }
+
 
 export default CartProvider;

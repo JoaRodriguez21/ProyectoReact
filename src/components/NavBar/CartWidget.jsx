@@ -3,13 +3,16 @@ import { cartContext } from "../../storage/CartContext";
 import ImgCarrito from "../NavBar/carrito.png";
 import "./NavBar.css"
 function CartWidget() {
-    const { itemsCounter } = useContext(cartContext)
+    const { itemsCounter, cart } = useContext(cartContext)
 
     return(
-        <>
+        <div className="contImgSpan">
             <img className="navCart" src={ImgCarrito} alt="imagen del carrito" />
-            <span>{itemsCounter()}</span>
-        </>
+            {
+                cart.length > 0 && <span className="spanItemCount">{`(${itemsCounter()})`}</span>
+            }
+                
+        </div>
     );
 } 
 

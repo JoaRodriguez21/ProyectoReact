@@ -34,13 +34,23 @@
     color: rgb(255, 255, 255);
     transition: 0.5s;
 }
+/* cart */
 .cartContainer{
+    padding: 0px 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: auto;
 }
+.contImgSpan{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: nowrap;
+}
+
 /* form */
 .tituloImput{
     color: rgb(209, 209, 209);
@@ -68,4 +78,10 @@
 .navCart{
     width: 30px;
     height: 30px;
+}
+.spanItemCount{
+    font-size: 2rem;
+    text-decoration: none;
+    font-family: 'Teko', sans-serif;
+    color: rgb(255, 255, 255);
 }

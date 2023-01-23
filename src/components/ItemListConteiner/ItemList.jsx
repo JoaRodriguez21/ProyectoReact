@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import ProductosApple, { getProdByCategory } from "../../Services/mockApple"
-import Card from './Card';
+import { productosApple, getProdByCategory } from '../../Services/firebase';
 
+import Loader from '../Loader/Loader';
+import Card from './Card';
 
 
 function ItemList() {
@@ -12,7 +13,7 @@ function ItemList() {
     
     useEffect(() => {
         if (!categoriaid) {
-            ProductosApple().then((resp)=>{
+            productosApple().then((resp)=>{
                 setProductos(resp)
             })
             .catch((error) => alert(error))
@@ -28,7 +29,7 @@ function ItemList() {
   return (
     <>
     {isLoading ? (
-        <h3>Cargando productos "loader"</h3>
+        <Loader/>
     ) : (
         <div className="productosContainer">
             {productos.map((CardIterada) => {

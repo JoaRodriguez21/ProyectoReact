@@ -1,14 +1,29 @@
 .contHomePage{
-    padding: 100px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-.titleHomePage{
-    font-size: 6rem;
+.appleTitulo{
+    color: white;
+    text-align: center;
+    font-size: 8rem;
     margin-bottom: 70px;
+    padding: 50px 10px;
+}
+.textAlingCenter{
+    text-align: center;
+}
+.airpodscenter{
+    width: 60%;
+    height: 60%;
+}
+.homeBackBlack{
+    background-color: black;
+}
+.homeBackWithe{
+    background-color: white;
 }
 .contImgLinks{
     display: flex;
@@ -20,12 +35,21 @@
     height: 100%;
 }
 .imgLinks{
-    margin: 10px 20px;
-    width: 700px;
-    border-radius: 3%;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    width: 100%;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: all 1s ease;
+}
+.imglinksAirPods{
+    width: 60%;
+    height: 60%;
 }
 .imgLinks:hover{
-    transform: scale(1.05);
+    transform: scale(1.005);
     transition: 0.5s;
+    filter: grayscale(0%);
+    filter: gray;
+    -webkit-filter: grayscale(0%);
+    filter: none;
+    transition: 1s ease;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState, useContext } from 'react';
 import { cartContext } from "../../storage/CartContext";
 import { useParams } from 'react-router-dom';
-import { getProducto } from '../../Services/mockApple';
+import { getProducto } from '../../Services/firebase';
 import ItemDetail from './ItemDetail';
 
 function ItemDetailConteiner() {
