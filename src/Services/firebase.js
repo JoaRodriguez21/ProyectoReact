@@ -35,7 +35,7 @@ export async function getProducto(idParams){
     const productosRef = collection(db, "productosApple")
     const docRef = doc(productosRef, idParams)
     const snapshot = await getDoc(docRef);
-    return snapshot.data()
+    return {...snapshot.data(), id: snapshot.id}
 }
 
 export async function getProdByCategory(categoriaUrl){

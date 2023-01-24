@@ -1,8 +1,9 @@
 import { Action } from '@remix-run/router';
 import React, { useState } from 'react'
 import { createContext } from "react";
+import { useDeepCopy } from '../components/hooks/useDeepCopy';
 
-export const cartContext = createContext()
+export const cartContext = createContext({ cart: [] })
 
 
 function CartProvider(props) {
@@ -10,18 +11,20 @@ function CartProvider(props) {
   //Función para sumar los items en el cartWidget
   const itemsCounter = () => 
   cart.reduce((accum, item) => accum = accum + item.count, 0);
+  let newCart = useDeepCopy(cart);
 
   /* generar LocalStorage carrito */
 
 //Función para agregar al carrito
   function addToCart(item) {
     let isInCart = cart.findIndex(itemInCart => itemInCart.id === item.id)
-    let newCart = cart.map((item) => item);
+    let itemInCart = cart.find((prod)=> prod.id === item.id)
+    console.log(isInCart)
 
     if(isInCart !== -1){
       newCart[isInCart].count = newCart[isInCart].count + item.count;
-      setCart(newCart)
-      alert(`ya esta en el carrito, tienes ${isInCart.count} unidades`)
+      setCart(newCart) //aca esta el problema
+      alert(`ya esta en el carrito, tienes ${itemInCart.count} unidades`)
     }
     else{
       setCart([...cart, item]);
@@ -36,6 +39,7 @@ function CartProvider(props) {
   }
 
   function clear(){
+    alert(`Se eliminará el carrito`)
     setCart([]);
   }
 

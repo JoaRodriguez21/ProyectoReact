@@ -15,6 +15,7 @@ function ItemDetailConteiner() {
     addToCart(
       {...productoDetail, count: count}
     );
+    console.log(count)
     
   }
 
