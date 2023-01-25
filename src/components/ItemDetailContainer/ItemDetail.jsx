@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ItemList from "../ItemListConteiner/ItemList";
 import ItemCount from "./ItemCount";
 import "./ItemDetail.css"
 
-function ItemDetail({ nombre, imgurl, categoria, precio, stock, info, onAddToCart}) {
+function ItemDetail({ nombre, imgurl, categoria, precio, stock, info, onAddToCart, isInCart}) {
   return (
     <section className="contDetail">
       <div className="item-card contCardDetail">
@@ -42,7 +43,18 @@ function ItemDetail({ nombre, imgurl, categoria, precio, stock, info, onAddToCar
                   </div>
               </div>
             </div>
-            <ItemCount stocked={stock}  onAddToCart={onAddToCart}></ItemCount>
+            { isInCart ? (
+              <div className="d-flex mb-2 buttonColumnCard">
+                <Link to="/cart">
+                  <button className="btnBasic">Ir ➡🛒</button>
+                </Link>
+              </div>
+            )
+            :
+            (
+              <ItemCount stocked={stock}  onAddToCart={onAddToCart}></ItemCount>
+            )
+            }
         </div>
         <br></br>
       </div>

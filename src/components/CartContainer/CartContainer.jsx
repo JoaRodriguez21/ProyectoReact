@@ -4,13 +4,37 @@ import CartItem from './CartItem'
 import "./cartContainer.css"
 import { Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { createOrder } from '../../Services/firebase'
 
 
 function CartContainer() {
 
-   const {cart, getTotalItemsInCart, clear, removeItem} = useContext(cartContext)
+const {cart, getTotalItemsInCart, clear, removeItem} = useContext(cartContext)
     console.log(cart.length)
     let cartLength = cart.length;
+
+    function handleChekout(evt){
+        const items = cart.map(({id, precio,nombre, categoria, count}) => ({
+            id,
+            precio,
+            nombre,
+            categoria,
+            count
+        }))
+        const order = {
+            buyer : {
+                nombre: "test",
+                email: "test@gmail.com",
+                telefono: 123456
+            },
+            items: items,
+            total: getTotalItemsInCart(),
+            fecha: new Date()
+        }
+        console.table(order)
+        createOrder(order);
+    }
+
   return (
     <>
     <h1 className='tituloCarrito'>Carrito</h1>
@@ -26,9 +50,9 @@ function CartContainer() {
                                 <input className="imputForm" type="text" name="name" />
                                 <h3>Datos de la tarjeta</h3>
                                 <input className="imputForm" type="text" name="name" />
-                                <button type="submit" value="Submit"  className="me-3 btnBasic">Enviar pedido</button>
                             </label>
                         </Form>
+                        <button onClick={handleChekout} className="me-3 btnBasic">Enviar pedido</button>
                     </div>
                     <div className='contMiCart'>
                         <div>

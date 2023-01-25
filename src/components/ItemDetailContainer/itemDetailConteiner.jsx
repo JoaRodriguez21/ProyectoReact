@@ -7,10 +7,12 @@ import ItemDetail from './ItemDetail';
 
 function ItemDetailConteiner() {
   const [productoDetail, setProductoDetail] = useState({nombre: "cargando...", precio: "--,--"});
+  const [isInCart, setIsInCart] = useState(false)
   let params = useParams();
   const { addToCart } = useContext(cartContext)
 
   function handleAddToCart(count){
+    setIsInCart(true)
     alert(`agregaste ${count} elementos`)
     addToCart(
       {...productoDetail, count: count}
@@ -27,6 +29,7 @@ useEffect(() => {
     }, [params]);
   return (
     <ItemDetail {...productoDetail}
+    isInCart={isInCart}
     onAddToCart={handleAddToCart}
     nombre={productoDetail.nombre}
     imgurl={productoDetail.imgurl}
