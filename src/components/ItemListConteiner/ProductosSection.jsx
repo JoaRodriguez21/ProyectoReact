@@ -5,7 +5,7 @@ function ProductosSection() {
 
     return(
         <section className="contOfertas">
-            <h1 className="tituloProductos">Productos</h1>
+            <h1 className="tituloProductos">Productos disponibles</h1>
             <ItemList />
         </section>
     )

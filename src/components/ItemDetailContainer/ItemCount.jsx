@@ -3,10 +3,6 @@ import "../../components/CartContainer/cartContainer.css"
 
 
 function ItemCount({stocked, onAddToCart}) {
-    const [colorState, setColorState] = useState("");
-    let styleButton = {
-        backgroundColor: colorState,
-    }
     const [count, setCount] = useState(1)
     function handleAdd() {
         setCount(count + 1);
@@ -23,7 +19,7 @@ function ItemCount({stocked, onAddToCart}) {
                 <button className="btn btn-secondary btnDisp" disabled={count === stocked} onClick={handleAdd}>+</button>
             </div>
             <div>
-                <button onClick={() => onAddToCart(count)}  style={styleButton} className="btnBasic">Agregar al carrito 🛒</button>
+                <button onClick={() => onAddToCart(count)}  className="btnBasic">Agregar al carrito 🛒</button>
             </div>
         </div>
   )

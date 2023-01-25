@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 function CartContainer() {
 
-   const {cart, getTotal, clear, removeItem} = useContext(cartContext)
+   const {cart, getTotalItemsInCart, clear, removeItem} = useContext(cartContext)
     console.log(cart.length)
     let cartLength = cart.length;
   return (
@@ -41,6 +41,9 @@ function CartContainer() {
                             {cart.map((itemInCart) => {
                                 return <CartItem  item={itemInCart} buttonX={removeItem}/>
                             })}
+                        </div>
+                        <div>
+                            <h2 className='tituloTotalCompra'>Total de la compra: ${getTotalItemsInCart()} USD</h2>
                         </div>
                     </div>
                 </section> :

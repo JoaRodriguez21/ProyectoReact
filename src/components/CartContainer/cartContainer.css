@@ -1,3 +1,6 @@
+.cartList_row{
+    line-height: 56px;
+  }
 .tituloCarrito{
     color: white;
     text-align: center;
@@ -13,10 +16,12 @@
     background-color: rgba(255, 255, 255, 0.66);
 }
 .tituloResumen{
-    color: black;
+    color: rgb(255, 255, 255);
     margin: 10px 50px;
     text-align: center;
     font-size: 3rem;
+    box-shadow: rgba(163, 163, 163, 0.4) 5px 5px, rgba(138, 138, 138, 0.3) 10px 10px, rgba(81, 81, 81, 0.2) 15px 15px, rgba(74, 74, 74, 0.1) 20px 20px, rgba(20, 20, 20, 0.05) 25px 25px;
+    background-color: rgba(61, 61, 61, 0.66);
 }
 .contCart{
     display: flex;
@@ -26,6 +31,7 @@
     flex-wrap: wrap;
 }
 .contResumen{
+    height: 100vh;
     width: 50%;
     background-color: white;
 }
@@ -34,6 +40,7 @@
     
 }
 .contMiCart{
+    height: 100%;
     width: 50%;
     background-color: rgba(63, 63, 63, 0.791);
 }
@@ -64,19 +71,25 @@
     flex-wrap: nowrap;
     padding: 30px 20px;
 }
-.contItemCart{
-    margin: 20px 10px;
-    border-radius: 2%;
-    padding: 20px 20px;
+.itemInCart{
+    border-radius: 1.5%;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    background-color: rgb(255, 255, 255);
     width: 100%;
     height: 100%;
+    margin: 20px 10px;
+}
+.contItemCart{
+    padding: 10px 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: nowrap;
-    box-shadow: rgba(155, 155, 155, 0.2) 0px 2px 8px 0px;
-    background-color: rgb(255, 255, 255);
+}
+.contButtonX{
+    display: flex;
+    justify-content: end;
 }
 .contItemCart:hover{
     box-shadow: rgba(237, 237, 237, 0.483) 5px 5px, rgba(203, 203, 203, 0.397) 10px 10px, rgba(156, 156, 156, 0.363) 15px 15px, rgba(107, 107, 107, 0.271) 20px 20px, rgba(79, 79, 79, 0.197) 25px 25px;
@@ -95,7 +108,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: rgba(163, 163, 163, 0.4) 5px 5px, rgba(138, 138, 138, 0.3) 10px 10px, rgba(81, 81, 81, 0.2) 15px 15px, rgba(74, 74, 74, 0.1) 20px 20px, rgba(20, 20, 20, 0.05) 25px 25px;
 }
 .bordersItems{
     border-width: 2px;
@@ -108,6 +120,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+}
+.tituloTotalCompra{
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    font-size: 3.5rem;
+    font-family: 'Teko', sans-serif;
+    text-decoration-line: underline;
+    text-decoration-style: double;
+    text-decoration-color: rgb(255, 255, 255);
+
 }
 
 /* No hay items */
