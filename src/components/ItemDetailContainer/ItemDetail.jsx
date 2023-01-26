@@ -4,7 +4,7 @@ import ItemList from "../ItemListConteiner/ItemList";
 import ItemCount from "./ItemCount";
 import "./ItemDetail.css"
 
-function ItemDetail({ nombre, imgurl, categoria, precio, stock, info, onAddToCart, isInCart}) {
+function ItemDetail({ nombre, imgurl, categoria, precio, info, stock, onAddToCart, isInCart, stockUpdated}) {
   return (
     <section className="contDetail">
       <div className="item-card contCardDetail">
@@ -25,14 +25,14 @@ function ItemDetail({ nombre, imgurl, categoria, precio, stock, info, onAddToCar
                   <div>
                     { info ? (
                       <div>
-                        <h4 className="datosInfo">Color: {info[0]}</h4>
+                        <h4 className="datosInfo">Color: {info[0].color}</h4>
                         { info[1] ?
-                          <h4 className="datosInfo">Memoria: {info[1]}GB</h4>
+                          <h4 className="datosInfo">Memoria: {info[0].memoria}GB</h4>
                           :
                           ""
                         }
                         { info[2] ?
-                          <h4 className="datosInfo">Chip: {info[2]}</h4>
+                          <h4 className="datosInfo">Chip: {info[0].chip}</h4>
                           :
                           ""
                         }
@@ -52,13 +52,11 @@ function ItemDetail({ nombre, imgurl, categoria, precio, stock, info, onAddToCar
             )
             :
             (
-              <ItemCount stocked={stock}  onAddToCart={onAddToCart}></ItemCount>
+              <ItemCount  onAddToCart={onAddToCart} stockUpdated={stockUpdated} stock={stock}></ItemCount>
             )
             }
         </div>
-        <br></br>
       </div>
-        <ItemList/>
     </section>
   );
 }

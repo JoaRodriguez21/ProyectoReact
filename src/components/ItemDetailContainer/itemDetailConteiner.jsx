@@ -9,17 +9,29 @@ function ItemDetailConteiner() {
   const [productoDetail, setProductoDetail] = useState({nombre: "cargando...", precio: "--,--"});
   const [isInCart, setIsInCart] = useState(false)
   let params = useParams();
-  const { addToCart } = useContext(cartContext)
+  const { cart, addToCart } = useContext(cartContext)
 
   function handleAddToCart(count){
     setIsInCart(true)
-    alert(`agregaste ${count} elementos`)
     addToCart(
       {...productoDetail, count: count}
     );
-    console.log(count)
     
   }
+
+  function checkStock(){
+    let itemInCart = cart.find((item) => item.id === productoDetail.id);
+
+    let stockUpdate = productoDetail.stock;
+    console.log(stockUpdate)
+    
+    if(itemInCart){
+      console.log(itemInCart)
+      stockUpdate = productoDetail.stock - itemInCart.count;
+    }
+    return stockUpdate
+  }
+
 
 useEffect(() => {
     getProducto(params.id).then((res) => {
@@ -36,7 +48,9 @@ useEffect(() => {
     categoria={productoDetail.categoria}
     precio={productoDetail.precio}
     stock={productoDetail.stock}
+    stockUpdated={checkStock()}
     info={productoDetail.info}
+    /* stockUpdated={checkStock()} */
     ></ItemDetail>
   )
 }

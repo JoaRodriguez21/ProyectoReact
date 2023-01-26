@@ -1,7 +1,7 @@
-import { Action } from '@remix-run/router';
 import React, { useState } from 'react'
 import { createContext } from "react";
 import { useDeepCopy } from '../components/hooks/useDeepCopy';
+import Swal from 'sweetalert2'
 
 export const cartContext = createContext({ cart: [] })
 
@@ -24,55 +24,124 @@ function CartProvider(props) {
     if(isInCart !== -1){
       newCart[isInCart].count = newCart[isInCart].count + item.count;
       setCart(newCart)
-      alert(`ya esta en el carrito, tienes ${itemInCart.count} unidades`)
+      Swal.fire({
+        icon: 'success',
+        title: `Tienes: "${itemInCart.count}" unidades.`,
+        width: "40%",
+        padding: "1rem",
+        footer: `Se sumarán las unidades agregadas`,
+        customClass: {
+            container: 'containerSwal',
+            popup: "popupSwal",
+            title: 'titleSwal',
+            text: "textSwal",
+            confirmButton: 'btnSwal',
+            confirmButtonColor:"#7B7F9D",
+            footer: 'footerSwal',
+        }
+      })
     }
     else{
       setCart([...cart, item]);
+
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Item agregado al carrito',
+        showConfirmButton: false,
+        timer: 1500,
+        customClass: {
+          container: 'containerSwal'
+          
+        }
+      })
     }
   }
 
 //precio total por item 👌
 function totalItem(precio, count){
   let totalForItem = precio * count;
-  console.log(`El total por el item es ${totalForItem}`)
   return totalForItem;
 }
 
 //remover del carrito 👌
   function removeItem(id){
-    alert(`se eliminará un producto`)    
-      let itemToDelete = cart.find(elem => elem.id === id)
-      setCart(cart.filter((cartId) => {
+      Swal.fire({
+        title: '¿Deseas eliminar el producto del carrito?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Eliminar',
+        denyButtonText: `No aplicar`,
+        width: "40%",
+        customClass: {
+          container: 'containerSwal',
+          popup: "popupSwal",
+          title: 'titleSwal',
+          text: "textSwal",
+          confirmButton: 'btnSwalConfirm',
+          confirmButtonColor:"#7B7F9D",
+          cancelButton:"btnSwalCancel",
+          denyButton: "btnSwalDeny",
+      }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Producto eliminado', '', 'success')
 
-        return cartId !== itemToDelete;
-    
-      }));
+          let itemToDelete = cart.find(elem => elem.id === id)
+          setCart(cart.filter((cartId) => {
+          return cartId !== itemToDelete;
+          }));
+
+        } else if (result.isDenied) {
+          Swal.fire('No se aplicaron los cambios', '', 'info')
+        }
+      })
   }
 
   //vaciar carrito 👌
   function clear(){
-    alert(`Se eliminará el carrito`)
+    Swal.fire({
+      title: '¿Deseas vaciar el carrito?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Vaciar',
+      denyButtonText: `No aplicar`,
+      width: "40%",
+      customClass: {
+        container: 'containerSwal',
+        popup: "popupSwal",
+        title: 'titleSwal',
+        text: "textSwal",
+        confirmButton: 'btnSwalConfirm',
+        confirmButtonColor:"#7B7F9D",
+        cancelButton:"btnSwalCancel",
+        denyButton: "btnSwalDeny",
+    }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Carrito vacio', '', 'success')
+
+        setCart([]);
+
+      } else if (result.isDenied) {
+        Swal.fire('No se aplicaron los cambios', '', 'info')
+      }
+    })
+
+  }
+  function clearCart(){
     setCart([]);
   }
 
-  //total del carrito
+  //total del carrito 👌
   const getTotalItemsInCart = () => {
 
     const totalItemsIntCart = cart.reduce((acc, el) => acc + el.precio * el.count, 0);
-    console.log(`TOTAL ${totalItemsIntCart}`)
     return totalItemsIntCart;
-
-  //newCart.reduce((count, item) => item.precio + count, 0);
-  /* function getTotalItemsInCart(){
-    //reduce?
-    let total = 0;
-    newCart.reduce((count, item) => count = count.count + item.count, 0);
-    //por cada producto -> total += producto.count
-  } */
 }
 
   return (
-    <cartContext.Provider value={{cart, addToCart, itemsCounter, removeItem, getTotalItemsInCart, clear, totalItem}}>
+    <cartContext.Provider value={{cart, addToCart, itemsCounter, removeItem, getTotalItemsInCart, clear, totalItem, clearCart}}>
         {props.children}
     </cartContext.Provider>
   )

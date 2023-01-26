@@ -6,20 +6,14 @@ import ItemDetailConteiner from "./components/ItemDetailContainer/ItemDetailCont
 import HomePage from './pages/HomePage';
 import CartProvider from './storage/CartContext';
 import CartContainer from './components/CartContainer/CartContainer';
-import app, { obtenerProductos } from './Services/firebase';
 
 
 function App() {
-
-  function functionBuscar(producto){
-    alert(`El producto: ${producto} no se encontró`);
-  }
-
   return (
     <div>
       <BrowserRouter>
         <CartProvider>
-            <NavBar onLogin={functionBuscar}/>
+            <NavBar/>
           <Routes>
             <Route path='/' element={<HomePage/>}/>
             <Route path="/categoria/:categoriaid" element={<ProductosSection/>}/>

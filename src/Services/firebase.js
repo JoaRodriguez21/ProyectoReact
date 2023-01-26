@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, query, where, addDoc} from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc, query, where, addDoc, writeBatch, documentId, WriteBatch} from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -60,4 +60,49 @@ export async function createOrder(order){
   return respuesta.id;
 }
 
-export default db;
+
+//exportar order && control de stock
+export async function createOrderStockControl(order){
+    const orderRef = collection(db, "order")
+    const productosRef = collection(db, "ProductosApple")
+    //1. creamos un lote o batch de escritura
+    const batch = writeBatch(db);
+    
+    //2 Actualizar item
+    //2.2 listado de items count - stock
+    const baseIds = order.items.map((item) => item.id);
+    //2.3 obtengo de firebase la data
+    const q = query(productosRef, where(documentId(), "in", baseIds));
+    const querySnashot = await getDocs(q);
+    const docsToUpdate = querySnashot.docs;
+    //2.4 Generar un array vacio para colocar los items que no tengan stock
+    let itemsSinStock = [];
+
+    //3 Por cada documento en la BD comprobar si hay suficiente stock
+    docsToUpdate.forEach((doc) => {
+        let stock = doc.data().stock;
+        console.log(doc.data().stock)
+        //3.2 encontramos el item "iterado"
+        let itemInCart = order.items.find( item => item.id === doc.id);
+        let countInCart = itemInCart.count;
+        //3.3 calcular la cantidad resultante
+        let newStock = stock - countInCart;
+        //4 validamos si hay stock
+        if(newStock < 0){
+            itemsSinStock.push(doc.data().nombre);
+        } else {
+            batch.update( doc.ref, { stock: newStock })
+        }
+    });
+    //5 Armamos un error para mostrarle al usuario en el caso de no haber stock
+    if(itemsSinStock.length >= 1) {
+        throw new Error(`Stock no disponible para el producto ${itemsSinStock}`)
+    };
+
+    //5 Hacemos un "commit" del batch y realizamos los cambios
+    await batch.commit()
+    //6 Generamos la orden de compra OPERACIONES ACID
+    let newOrder = await addDoc(orderRef, order);
+    return newOrder.id;
+}
+    export default db;
