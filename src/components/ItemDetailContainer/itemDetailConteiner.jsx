@@ -38,7 +38,9 @@ useEffect(() => {
           setProductoDetail(res);
         })
         .catch((error) => alert(error));
-    }, [params]);
+    }, []);
+
+
   return (
     <ItemDetail {...productoDetail}
     isInCart={isInCart}

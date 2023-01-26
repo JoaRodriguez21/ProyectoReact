@@ -2,11 +2,11 @@ import React, { useContext, useState } from 'react'
 import { cartContext } from '../../storage/CartContext'
 import CartItem from './CartItem'
 import "./cartContainer.css"
-import { Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { createOrder, createOrderStockControl } from '../../Services/firebase'
 import Swal from 'sweetalert2'
-import { doc } from 'firebase/firestore'
+
+import FormCheckout from './FormCheckout'
 
 
 function CartContainer() {
@@ -16,7 +16,8 @@ function CartContainer() {
     console.log(cart.length)
     let cartLength = cart.length;
 
-    function handleChekout(evt){
+    function handleCheckout(evt, userData){
+        evt.preventDefault()
         const items = cart.map(({id, precio,nombre, categoria, count}) => ({
             id,
             precio,
@@ -25,22 +26,18 @@ function CartContainer() {
             count
         }))
         const order = {
-            buyer : {
-                nombre: "test",
-                email: "test@gmail.com",
-                telefono: 123456
-            },
+            buyer: userData, 
             items: items,
             total: getTotalItemsInCart(),
             fecha: new Date(),
             estado: "Enpaquetando",
         };
         console.table(order)
-
         async function sendOrder() {
             try {
-              let id = await createOrderStockControl(order);
-              setOrderId(id)
+                let id = await createOrderStockControl(order);
+                setOrderId(id);
+                clearCart();
             } catch (error) {
                 Swal.fire({
                     icon: 'error',
@@ -57,10 +54,10 @@ function CartContainer() {
                     confirmButtonColor:"#7B7F9D",
                     footer: 'footerSwal',
                 }
-            })
+            });
             }
-          }
-          sendOrder()
+        }
+        sendOrder()
     }
         return (
             orderId ? (
@@ -87,17 +84,7 @@ function CartContainer() {
                     <section className='contCart'>
                         <div className='contResumen'>
                             <h2 className='tituloResumen'>Resumen</h2>
-                            <Form className='contCartItems'>
-                                <label className="me-3 contCardItems">
-                                    <h3>Nombre y Apellido</h3>
-                                    <input className="imputForm" type="text" name="name" />
-                                    <h3>Dirección</h3>
-                                    <input className="imputForm" type="text" name="name" />
-                                    <h3>Datos de la tarjeta</h3>
-                                    <input className="imputForm" type="text" name="name" />
-                                </label>
-                            </Form>
-                            <button onClick={handleChekout} className="me-3 btnBasic">Enviar pedido</button>
+                            <FormCheckout onCheckout={handleCheckout}/>
                         </div>
                         <div className='contMiCart'>
                             <div>

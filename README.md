@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Proyecto Apple Store con React JS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_Hola! me considero una persona muy fánatica de la historia de Apple y su evolución, por eso me base en un "marketplace" Proyecto final de una aplicación web ficticia tipo "Marketplace" sobre sus productos, diseñada, desarrollada y programada para la cursada de "React JS" de CoderHouse_
 
-## Available Scripts
+## Objetivo
 
-In the project directory, you can run:
+Desarrollar una aplicación web tipo Marketplace/Store utilizando la herramienta React
 
-### `npm start`
+## Comenzando 🚀
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Mira **Deployment** para conocer como desplegar el proyecto.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Pre-requisitos 📋
 
-### `npm run build`
+_Que cosas necesitas para instalar el software y como instalarlas_
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Instalar **react** y las dependencias del proyecto.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm create-react-app
+```
 
-### `npm run eject`
+### Instalación 🔧
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+_ahora instalamos todas las dependencias_
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_En nuestra consola ejecutamos los siguientes comandos_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm i react-dom
+npm i route-react-dom
+npm i bootstrap 5.2.3
+npm i sweetalert2 11.7.1
+npm i popperjs/core @2.11.6
+npm i uiball
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Ejecutado ⚙️
 
-## Learn More
+_Para iniciar utilizamos el siguiente comando_
+```
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Construido con 🛠️
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+_Estas son las herramientas que se utilizarón para el proyecto_
 
-### Code Splitting
+* [React](https://es.reactjs.org/) - Herramienta principal del proyecto, se desarrollaron componentes para la funcionalidad de la App
+* [React Router](https://reactrouter.com/en/main) - Se utilizó para navegar entre los componentes de la App, optimizando la funcionalidad.
+* [Bootstrap](https://react-bootstrap.github.io/) - El framework para los estilos CSS de la App
+* [Uiball](https://uiball.com/loaders/) - herramienta para los componentes tipo "loader"
+* [Firestore](https://firebase.google.com/?hl=es-419) - Se utilizó para cargar las ordenes de compra y recibir los productos de firestore
+* [Sweetalert2](https://sweetalert2.github.io/) - Herramienta para alertas en pantalla
+### Lenguajes
+- HTML
+- CSS
+- Javascript
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Versionado 📌
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Usé [Git](http://semver.org/) para el versionado. Para visualizar todas las versiones & ramas disponibles, vistita el repositorio -> [GitHub](https://github.com/JoaRodriguez21/ProyectoReact).
 
-### Making a Progressive Web App
+## Autores ✒️
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+* **Joaquín Rodríguez** - *Trabajo Inicial, documentación, diseño y desarrollo* - [Link GitHub](https://github.com/JoaRodriguez21)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Licencia 📄
 
-### Deployment
+Este proyecto está libre de licencias, Codigo abierto.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## Visualiza el proyecto🚀 [aquí](https://joarodriguez21.github.io/cartillamenu).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contacto 🎁
+
+* Comenta a otros sobre este proyecto 📢
+* Conectá conmigo en [Linkedin](https://www.linkedin.com/in/joaquinrod/).
+---
+Desarrollado por [Joaquín Rodríguez](https://www.linkedin.com/in/joaquinrod/) 👨‍💻
