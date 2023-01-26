@@ -1,10 +1,13 @@
 import React from 'react'
+import "./cartContainer.css"
 
 function InputForm(props) {
     return (
-      <div style={{ display: "flex", marginBottom: 8 }}>
-        <label style={{ width: "100px", marginRight: 4 }}>{props.label}</label>
+      <div>
+        
         <input
+        className='imputsForm'
+        placeholder={props.label}
           value={props.value}
           name={props.name}
           type="text"

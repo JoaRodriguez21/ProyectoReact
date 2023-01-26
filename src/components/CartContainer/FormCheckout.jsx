@@ -52,8 +52,8 @@ export default function FormCheckout(props) {
     }
   
     return (
-      <form onSubmit={onSubmit}>
-        <h1>Llena tus datos para finalizar la compra</h1>
+      <form className="contForm" onSubmit={onSubmit}>
+        <h1 className="tituloForm">Completá el formulario con tus datos para finalizar la compra</h1>
         {fieldsForm.map((field) => (
           <InputForm
             value={userData[field]}
@@ -63,18 +63,20 @@ export default function FormCheckout(props) {
             userData={userData}
           />
         ))}
-        <button
-          className="me-3 btnBasic"
-          onClick={(evt) => props.onCheckout(evt, userData)}
-          disabled={formIsInvalid()}
-          type="submit"
-        >
-          Crear orden
-        </button>
-  
-        <button className="me-3 btnBasic" onClick={() => setUserData({ name: "", email: "", phone: "" })}>
-          Limpiar Formulario
-        </button>
+        <div className="contButtonsForm">
+          <button
+            className="me-3 btnBasic buttonFinish"
+            onClick={(evt) => props.onCheckout(evt, userData)}
+            disabled={formIsInvalid()}
+            type="submit"
+          >
+            Finalizar Compra
+          </button>
+    
+          <button className="me-3 btnBasic" onClick={() => setUserData({ name: "", email: "", phone: "" })}>
+            Limpiar Formulario
+          </button>
+        </div>
       </form>
     );
   }

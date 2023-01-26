@@ -61,17 +61,14 @@ function CartContainer() {
     }
         return (
             orderId ? (
-                <section>
+                <section className='contThanks'>
                     <div>
-                        <h1>Gracias por su compra</h1>
-                        <h4>{orderId}</h4>
-                    </div>
-                    <div>
-                        <h3>Estado de su envio:</h3>
+                        <h1 className='tituloThanks'>Gracias por su compra</h1>
+                        <h4 className='idThanks'>El codigo de su orden es: {orderId}</h4>
                     </div>
                     <div>
                         <Link to="/">
-                            <button className=''>Volver al inicio</button>
+                            <button className='btnBasic'>Volver al inicio</button>
                         </Link>
                     </div>
                 </section>
@@ -82,16 +79,9 @@ function CartContainer() {
             <h1 className='tituloCarrito'>Carrito</h1>
                 {cartLength > 0 ?
                     <section className='contCart'>
-                        <div className='contResumen'>
-                            <h2 className='tituloResumen'>Resumen</h2>
-                            <FormCheckout onCheckout={handleCheckout}/>
-                        </div>
                         <div className='contMiCart'>
                             <div>
                                 <h2 className='tituloMiCarrito'>Mi carrito</h2>
-                            </div>
-                            <div className='contClearCart'>
-                                <button onClick={() => clear()} className="btnBasic">Vaciar Carrito</button>
                             </div>
                             <div className='contCartItems'>
                                 {cart.map((itemInCart) => {
@@ -100,7 +90,14 @@ function CartContainer() {
                             </div>
                             <div>
                                 <h2 className='tituloTotalCompra'>Total de la compra: ${getTotalItemsInCart()} USD</h2>
+                                <div className='contClearCart'>
+                                    <button onClick={() => clear()} className="btnBasic">Vaciar Carrito</button>
+                                </div>
                             </div>
+                        </div>
+                        <div className='contResumen'>
+                            <h2 className='tituloResumen'>Resumen</h2>
+                            <FormCheckout onCheckout={handleCheckout}/>
                         </div>
                     </section> 
 

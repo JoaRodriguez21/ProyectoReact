@@ -15,7 +15,6 @@ function Card(props) {
     }
     
     return(
-        <div className="col">
             <div className="row">
                 <div className="">
                     <div className="card cardOfertas ">
@@ -48,9 +47,9 @@ function Card(props) {
                                 } */}
                                 {
                                     stock <= 4 ? (
-                                        <p className="text-muted mb-0 textCard">¡Ultimos {stock} disponibles!</p>
+                                        <p className="text-muted mb-0 textCard">¡Ultimos disponibles!</p>
                                     ) : (
-                                        <p className="text-muted mb-0 textCard">Disponibles: <span className="fw-bold textCard">{stock}</span></p>
+                                        ""
                                     ) 
                                 }
                                 <div>
@@ -63,7 +62,6 @@ function Card(props) {
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 
