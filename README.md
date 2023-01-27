@@ -76,7 +76,7 @@ Usé [Git](http://semver.org/) para el versionado. Para visualizar todas las ver
 Este proyecto está libre de licencias, Codigo abierto.
 
 
-## Visualiza el proyecto🚀 [aquí](https://joarodriguez21.github.io/cartillamenu).
+## Visualiza el proyecto🚀 [aquí](https://proyectoreact-ten.vercel.app/).
 
 ## Contacto 🎁
 
