@@ -1,6 +1,6 @@
 # Proyecto Apple Store con React JS
 
-_Hola! me considero una persona muy fánatica de la historia de Apple y su evolución, por eso me base en un "marketplace" Proyecto final de una aplicación web ficticia tipo "Marketplace" sobre sus productos, diseñada, desarrollada y programada para la cursada de "React JS" de CoderHouse_
+_Hola! me considero una persona muy fánatica de la historia de Apple y su evolución, por eso basé mi proyecto final en una aplicación web ficticia tipo "Marketplace" sobre sus productos, diseñada, desarrollada y programada para la cursada de "React JS" de CoderHouse_
 
 ## Objetivo
 
