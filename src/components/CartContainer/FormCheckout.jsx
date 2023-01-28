@@ -26,21 +26,21 @@ export default function FormCheckout(props) {
     });
   
     let fieldsForm = Object.keys(userData);
-    //console.log(userData)
+    
   
     function onInputChange(evt) {
       let value = evt.target.value;
       let inputName = evt.target.name;
   
       let newState = { ...userData };
-      // dynamic props
+      
       newState[inputName] = value;
       setUserData(newState);
     }
   
     function onSubmit(evt) {
       evt.preventDefault();
-      console.log(`Gracias por tu compra!`);
+      
     }
   
     function formIsInvalid() {

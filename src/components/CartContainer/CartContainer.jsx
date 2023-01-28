@@ -13,7 +13,6 @@ function CartContainer() {
     const [orderId, setOrderId] = useState()
 
     const {cart, getTotalItemsInCart, clear, clearCart, removeItem} = useContext(cartContext)
-    console.log(cart.length)
     let cartLength = cart.length;
 
     function handleCheckout(evt, userData){

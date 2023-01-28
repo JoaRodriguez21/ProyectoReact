@@ -23,10 +23,8 @@ function ItemDetailConteiner() {
     let itemInCart = cart.find((item) => item.id === productoDetail.id);
 
     let stockUpdate = productoDetail.stock;
-    console.log(stockUpdate)
     
     if(itemInCart){
-      console.log(itemInCart)
       stockUpdate = productoDetail.stock - itemInCart.count;
     }
     return stockUpdate
@@ -52,7 +50,6 @@ useEffect(() => {
     stock={productoDetail.stock}
     stockUpdated={checkStock()}
     info={productoDetail.info}
-    /* stockUpdated={checkStock()} */
     ></ItemDetail>
   )
 }

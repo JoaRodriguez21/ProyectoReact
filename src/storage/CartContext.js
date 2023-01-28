@@ -19,7 +19,6 @@ function CartProvider(props) {
   function addToCart(item) {
     let isInCart = cart.findIndex(itemInCart => itemInCart.id === item.id)
     let itemInCart = cart.find((prod)=> prod.id === item.id)
-    console.log(isInCart)
 
     if(isInCart !== -1){
       newCart[isInCart].count = newCart[isInCart].count + item.count;
