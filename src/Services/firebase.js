@@ -56,7 +56,6 @@ export async function getProdByCategory(categoriaUrl){
 /* export async function createOrder(order){
     const orderRef = collection(db, "order");
     let respuesta = await addDoc(orderRef, order);
-  console.log(respuesta, respuesta.id);
   return respuesta.id;
 } */
 
@@ -82,15 +81,12 @@ export async function createOrderStockControl(order){
     //3 Por cada documento en la BD comprobar si hay suficiente stock
     docsToUpdate.forEach((doc) => {
         let stock = doc.data().stock;
-        console.log(stock)
         //3.2 encontramos el item "iterado"
         let itemInCart = order.items.find( item => item.id === doc.id);
         let countInCart = itemInCart.count;
-        console.log(countInCart)
 
         //3.3 calcular la cantidad resultante
         let newStock = stock - countInCart;
-        console.log(newStock)
 
         //4 validamos si hay stock
         if(newStock < 0){
