@@ -5,7 +5,6 @@ import "../../components/CartContainer/cartContainer.css"
 
 function ItemCount({onAddToCart, stock, stockUpdated}) {
     const [count, setCount] = useState(1)
-    console.log(stockUpdated)
     function handleAdd() {
        if(count < stockUpdated) setCount(count + 1);
     }
