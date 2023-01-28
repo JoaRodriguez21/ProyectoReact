@@ -15,7 +15,6 @@ function ItemList() {
     //funcion de busqueda
     const searcher = (e) => {
         setSearchKeyword(e.target.value)
-        console.log(e.target.value)
     }
 
     //metodo de filtrado
